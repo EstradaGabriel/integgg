@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Kerin's Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BASE LAYOUT */
+        html, body {
+            height: 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-text p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            height: 2em;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 0.5em;
+        }
+
+        /* Optional: align text and image horizontally */
+        .header-text {
+            display: flex;
+            align-items: center;
+        }
+
+        /* NAVIGATION */
+        .nav-tabs {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-tabs li a:hover,
+        .nav-tabs li a.active {
+            text-decoration: underline;
+        }
+
+        /* PRODUCT DETAILS PAGE */
+        .product-details {
+            padding: 3rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info {
+            max-width: 500px;
+            font-family: 'Playfair Display', Cambria, serif;
+            color: #7a1c33;
+        }
+
+        .product-name {
+            font-size: 2rem;
+            color: #941a34;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #941a34;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-description {
+            margin-bottom: 2rem;
+        }
+
+        .product-description h3 {
+            font-size: 1.2rem;
+            color: #941a34;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description ul {
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .product-description ul li {
+            font-size: 1rem;
+            color: #7a1c33;
+        }
+
+        .add-to-cart-btn {
+            background-color: #f572d4;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.15);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #972e92;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 16px rgba(229, 57, 53, 0.25);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-text {
+                margin-bottom: 1rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-tabs li a {
+                font-size: 1rem;
+            }
+
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .product-info {
+                max-width: 100%;
+            }
+
+            .product-name {
+                font-size: 1.5rem;
+            }
+
+            .product-price {
+                font-size: 1.2rem;
+            }
+
+            .product-description h3 {
+                font-size: 1.1rem;
+            }
+
+            .product-description ul li {
+                font-size: 0.9rem;
+            }
+
+            .add-to-cart-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="header-text">
+                    <img src="logo.jpg" alt="Logo" class="logo-icon">
+                    <p>Kerin's Creations</p>
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <ul class="nav-tabs">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="what_we_offer.php">What We Offer</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-right">
+                <button class="nav-button">Account</button>
+                <button class="nav-button">Cart</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Details Section -->
+    <section class="product-details">
+        <div class="product-container">
+            <!-- Product Image -->
+            <div class="product-image">
+                <img src="https://img.freepik.com/premium-photo/lipstick-cosmetics-skincare-model_910054-52265.jpg" alt="Product Image">
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 class="product-name">Glossy Lip Kit</h1>
+                <p class="product-price">$35.00</p>
+                
+                <div class="product-description">
+                    <h3>Description:</h3>
+                    <p>
+                        A luxurious, glossy finish that gives your lips a smooth, shiny appearance. This lip kit includes a lip liner and a gloss that lasts all day, perfect for both everyday wear and special occasions.
+                    </p>
+                    <h3>Details:</h3>
+                    <ul>
+                        <li>Size: 5g lip gloss, 1g lip liner</li>
+                        <li>Color: Glossy Nude</li>
+                        <li>Features: Long-lasting, moisturizing, non-stick formula</li>
+                    </ul>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Copyright by Kimberly Ejon. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

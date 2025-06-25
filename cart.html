@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Kerin's Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BASE LAYOUT */
+        html, body {
+            height: 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-text p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            height: 2em;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 0.5em;
+        }
+
+        .header-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-tabs {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-tabs li a:hover,
+        .nav-tabs li a.active {
+            text-decoration: underline;
+        }
+
+        /* SHOPPING CART PAGE */
+        .cart-container {
+            padding: 3rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-size: 1.25rem;
+            color: #941a34;
+        }
+
+        .cart-item-price {
+            font-size: 1.1rem;
+            color: #7a1c33;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quantity-control button {
+            background-color: #f572d4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .remove-btn {
+            background-color: #941a34;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .cart-total p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #941a34;
+        }
+
+        .checkout-btn {
+            background-color: #f572d4;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.15);
+        }
+
+        .checkout-btn:hover {
+            background-color: #972e92;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 16px rgba(229, 57, 53, 0.25);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item-controls {
+                flex-direction: column;
+            }
+
+            .checkout-btn {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="header-text">
+                    <img src="logo.jpg" alt="Logo" class="logo-icon">
+                    <p>Kerin's Creations</p>
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <ul class="nav-tabs">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="what_we_offer.php">What We Offer</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-right">
+                <button class="nav-button">Account</button>
+                <button class="nav-button">Cart</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Shopping Cart Section -->
+    <section class="cart-container">
+        <div class="cart-items">
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <img src="https://img.freepik.com/premium-photo/lipstick-cosmetics-skincare-model_910054-52265.jpg" alt="Product Image">
+                <div class="cart-item-info">
+                    <p class="cart-item-name">Glossy Lip Kit</p>
+                    <p class="cart-item-price">$35.00</p>
+                </div>
+                <div class="cart-item-controls">
+                    <div class="quantity-control">
+                        <button>-</button>
+                        <input type="number" value="1" min="1" max="10" />
+                        <button>+</button>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="https://img.freepik.com/premium-photo/lipstick-cosmetics-skincare-model_910054-52265.jpg" alt="Product Image">
+                <div class="cart-item-info">
+                    <p class="cart-item-name">Dolce K Lipstick</p>
+                    <p class="cart-item-price">$30.00</p>
+                </div>
+                <div class="cart-item-controls">
+                    <div class="quantity-control">
+                        <button>-</button>
+                        <input type="number" value="1" min="1" max="10" />
+                        <button>+</button>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Price Section -->
+        <div class="cart-total">
+            <p>Total: $65.00</p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Copyright by Kimberly Ejon. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

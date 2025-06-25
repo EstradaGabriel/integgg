@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kerin's Creations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BASE LAYOUT */
+        html, body {
+            height: 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-text p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            height: 2em;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 0.5em;
+        }
+
+        .header-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-tabs {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-tabs li a:hover,
+        .nav-tabs li a.active {
+            text-decoration: underline;
+        }
+
+        /* CHECKOUT PAGE */
+        .checkout-container {
+            padding: 3rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h2 {
+            font-size: 1.5rem;
+            color: #941a34;
+            margin-bottom: 1rem;
+        }
+
+        .form-section input,
+        .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .payment-method {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .payment-method input {
+            width: auto;
+        }
+
+        .order-summary {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .order-summary h3 {
+            font-size: 1.5rem;
+            color: #941a34;
+            margin-bottom: 1rem;
+        }
+
+        .order-summary ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .order-summary ul li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            color: #7a1c33;
+        }
+
+        .total-price {
+            font-weight: bold;
+            color: #941a34;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+        }
+
+        .place-order-btn {
+            background-color: #f572d4;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.15);
+            margin-top: 1rem;
+        }
+
+        .place-order-btn:hover {
+            background-color: #972e92;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 16px rgba(229, 57, 53, 0.25);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgb(228, 125, 192);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .checkout-form {
+                gap: 1rem;
+            }
+
+            .payment-method {
+                flex-direction: column;
+            }
+
+            .place-order-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="header-text">
+                    <img src="logo.jpg" alt="Logo" class="logo-icon">
+                    <p>Kerin's Creations</p>
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <ul class="nav-tabs">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="what_we_offer.php">What We Offer</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-right">
+                <button class="nav-button">Account</button>
+                <button class="nav-button">Cart</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-container">
+        <div class="checkout-form">
+            <!-- Customer Info Section -->
+            <div class="form-section">
+                <h2>Customer Information</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+
+            <!-- Shipping Address Section -->
+            <div class="form-section">
+                <h2>Shipping Address</h2>
+                <textarea placeholder="Enter your shipping address" required></textarea>
+            </div>
+
+            <!-- Payment Method Section -->
+            <div class="form-section">
+                <h2>Payment Method</h2>
+                <div class="payment-method">
+                    <div>
+                        <input type="radio" name="payment" id="credit-card" checked>
+                        <label for="credit-card">Credit Card</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="payment" id="paypal">
+                        <label for="paypal">PayPal</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="payment" id="COD">
+                        <label for="COD">Cash on Delivery</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <ul>
+                    <li>
+                        <span>Glossy Lip Kit</span>
+                        <span>$35.00</span>
+                    </li>
+                    <li>
+                        <span>Dolce K Lipstick</span>
+                        <span>$30.00</span>
+                    </li>
+                </ul>
+                <div class="total-price">
+                    <span>Total: $65.00</span>
+                </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <button class="place-order-btn">Place Order</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Copyright by Kimberly Ejon. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
